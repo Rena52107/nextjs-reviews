@@ -1,8 +1,11 @@
-export default function RootLayout({ children }) {
+export default function RootLayout({ header, children, footer }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <header>{header}</header>
+        <main>{children}</main>
+        <footer>{footer}</footer>
+      </body>
     </html>
   );
 }
-
