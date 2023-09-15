@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import './globals.css';
 
 export default function RootLayout({ children }) {
   return (
@@ -26,7 +27,7 @@ export default function RootLayout({ children }) {
         </header>
         <main>{children}</main>
         <footer>
-          Game data and images courtesy of {' '}
+          Game data and images courtesy of{' '}
           <a
             href='https://rawg.io/'
             target='_blank'
