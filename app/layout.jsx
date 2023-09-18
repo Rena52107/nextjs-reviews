@@ -29,6 +29,7 @@ export default function RootLayout({ children }) {
           >
             RAWG
           </a>
+          {' '} Deployed on Vercel
         </footer>
       </body>
     </html>
