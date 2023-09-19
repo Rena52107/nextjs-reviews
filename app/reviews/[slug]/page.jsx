@@ -1,6 +1,7 @@
 import Heading from '@/components/Heading';
 import ShareLinkButton from '@/components/ShareLinkButton';
 import { getReview, getSlugs } from '@/lib/reviews';
+import Image from 'next/image';
 
 export async function generateStaticParams() {
   
@@ -26,7 +27,7 @@ export default async function ReviewPage({ params: { slug } }) {
         <p className='italic pb-2'>{review.date}</p>
         <ShareLinkButton />
       </div>
-      <img
+      <Image
         src={review.image}
         alt='stardew-valley'
         width='640'
