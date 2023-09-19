@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default async function HomePage() {
   const review = await getFeaturedReview();
-  console.log('[Homepage] rendering');
+  // console.log('[Homepage] rendering');
   return (
     <>
       <Heading>Indie Gamer</Heading>

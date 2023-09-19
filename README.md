@@ -8,7 +8,7 @@ This Udemy course focuses on hands-on projects using Next.js, utilizing the App 
 - File-based Routing
 - Page pre-rendering
 - Differences between React Server Components and Client Components
-- Data fetching in Server Components
+- Data fetching in Server Components, powered by Strapi
 - Styling with the Tailwind CSS framework
 - Embedding custom fonts into the application
 - Enhancing SEO-friendliness with metadata
