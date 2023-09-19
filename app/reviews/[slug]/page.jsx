@@ -1,10 +1,9 @@
+import Image from 'next/image';
 import Heading from '@/components/Heading';
 import ShareLinkButton from '@/components/ShareLinkButton';
 import { getReview, getSlugs } from '@/lib/reviews';
-import Image from 'next/image';
 
 export async function generateStaticParams() {
-  
   const slugs = await getSlugs();
   console.log('[generateStaticParams] slugs: ', slugs);
   return slugs.map((slug) => ({ slug }));
@@ -29,7 +28,8 @@ export default async function ReviewPage({ params: { slug } }) {
       </div>
       <Image
         src={review.image}
-        alt='stardew-valley'
+        alt={review.slug}
+        priority
         width='640'
         height='360'
         className='mb-2 rounded'
