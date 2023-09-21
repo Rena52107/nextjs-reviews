@@ -5,7 +5,10 @@ import Link from 'next/link';
 
 export default async function HomePage() {
   const reviews = await getReviews(3);
-  console.log('[Homepage] rendering', reviews);
+  console.log(
+    '[HomePage] rendering: ',
+    reviews.map((review) => review.slug).join(', ')
+  );
   return (
     <>
       <Heading>Indie Gamer</Heading>
