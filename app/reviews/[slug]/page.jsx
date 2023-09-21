@@ -6,11 +6,11 @@ import { getReview, getSlugs } from '@/lib/reviews';
 
 export const dynamic = 'force-dynamic';
 
-// export async function generateStaticParams() {
-//   const slugs = await getSlugs();
-//   console.log('[generateStaticParams] slugs: ', slugs);
-//   return slugs.map((slug) => ({ slug }));
-// }
+export async function generateStaticParams() {
+  const slugs = await getSlugs();
+  console.log('[generateStaticParams] slugs: ', slugs);
+  return slugs.map((slug) => ({ slug }));
+}
 
 export async function generateMetadata({ params: { slug } }) {
   const review = await getReview(slug);
