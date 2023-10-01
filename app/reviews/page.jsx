@@ -23,8 +23,8 @@ export default async function ReviewsPage({ searchParams }) {
           href='/reviews'
           page={page}
           pageCount={pageCount}
-      />
-      <SearchBox />
+        />
+        <SearchBox />
       </div>
       <ul className='flex flex-row flex-wrap gap-3'>
         {reviews.map((review, index) => (
