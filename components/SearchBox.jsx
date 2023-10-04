@@ -3,18 +3,21 @@
 import { Combobox } from '@headlessui/react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useDebounce } from 'use-debounce';
+
 import { useIsClient } from '@/lib/hooks';
 
 export default function SearchBox() {
   const router = useRouter();
   const isClient = useIsClient();
   const [query, setQuery] = useState('');
+  const [debounceQuery] = useDebounce(query, 300); // 300ms
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    if (query.length > 1) {
+    if (debounceQuery.length > 1) {
       const controller = new AbortController();
       (async () => {
-        const url = '/api/search?query=' + encodeURIComponent(query);
+        const url = '/api/search?query=' + encodeURIComponent(debounceQuery);
         const response = await fetch(url, { signal: controller.signal });
         const reviews = await response.json();
         setReviews(reviews);
@@ -23,13 +26,13 @@ export default function SearchBox() {
     } else {
       setReviews([]);
     }
-  }, [query]);
+  }, [debounceQuery]);
 
   const handleChange = (review) => {
     router.push(`/reviews/${review.slug}`);
   };
 
-  // console.log('[SearchBox] query:', query);
+  // console.log('[SearchBox]', { query, debounceQuery });
   if (!isClient) {
     return null;
   }
